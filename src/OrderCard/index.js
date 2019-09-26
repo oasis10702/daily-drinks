@@ -2,21 +2,29 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 
 import "./styles.css";
-import { deleteDrink, editDrink } from "../action";
+import {
+  deleteDrink,
+  editDrink,
+  increaseDrinkCount,
+  decreaseDrinkCount
+} from "../action";
 import { ReactComponent as EditSvg } from "../assets/edit.svg";
 import { ReactComponent as DeleteSvg } from "../assets/delete.svg";
 import { ReactComponent as CheckSvg } from "../assets/check.svg";
+import { ReactComponent as IncreaseSvg } from "../assets/increase.svg";
+import { ReactComponent as DecreaseSvg } from "../assets/decrease.svg";
 import { getTrimString } from "../utils";
 
 const OrderCard = props => {
   const {
-    drinkOrder: { name, price, notes },
+    drinkOrder: { name, price, notes, counts },
     orderIndex
   } = props;
   const dispatch = useDispatch();
   const orderData = [
     { id: "name", value: name },
     { id: "price", value: price },
+    { id: "counts", value: counts },
     { id: "notes", value: notes }
   ];
 
@@ -39,7 +47,6 @@ const OrderCard = props => {
   };
 
   const handleUpdate = orderId => {
-    console.log(orderId);
     const updateValue = {
       ...props.drinkOrder,
       [orderId]: getTrimString(editVaule, 50)
@@ -64,9 +71,25 @@ const OrderCard = props => {
     );
   };
 
+  const renderCountSvg = (pos, icon, action) => (
+    <div
+      style={{
+        ...verticalCenter,
+        [pos]: 0
+      }}
+      onClick={() => {
+        dispatch(action({ orderIndex }));
+      }}
+      className="iconButton"
+    >
+      {icon}
+    </div>
+  );
+
   const renderCardItem = (order, idx) => {
     const hovered = hoveredIndex === idx;
     const edited = editIndex === idx;
+    const isCount = order.id === "counts";
     return (
       <li
         key={order.id}
@@ -77,6 +100,9 @@ const OrderCard = props => {
         onMouseEnter={() => setHoveredIndex(idx)}
         onMouseLeave={() => setHoveredIndex(-1)}
       >
+        {isCount &&
+          counts > 0 &&
+          renderCountSvg("left", <DecreaseSvg />, decreaseDrinkCount)}
         {edited ? (
           <input
             autoFocus
@@ -86,7 +112,9 @@ const OrderCard = props => {
         ) : (
           order.value
         )}
-        {hovered && renderEditButton(idx, order.id)}
+        {isCount &&
+          renderCountSvg("right", <IncreaseSvg />, increaseDrinkCount)}
+        {hovered && !isCount && renderEditButton(idx, order.id)}
       </li>
     );
   };

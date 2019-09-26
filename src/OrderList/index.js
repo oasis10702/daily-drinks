@@ -20,6 +20,7 @@ const OrderList = () => {
       <ul className="listTitle">
         {rebderTitle(DRINK.TABLE_HEAD.NAME)}
         {rebderTitle(DRINK.TABLE_HEAD.PRICE)}
+        {rebderTitle(DRINK.TABLE_HEAD.COUNTS)}
         {rebderTitle(DRINK.TABLE_HEAD.NOTES)}
       </ul>
       {drinkOrders.map((drinkOrder, idx) => (
