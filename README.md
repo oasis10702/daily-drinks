@@ -8,12 +8,14 @@ Daily Drinks is an app for filling out a handmade drink form
 
 - `add` and `delete` drink order
 - `edit` drink order
+- `increase` and `decrease` drink order counts
 
 ## How to use
 
 - fill the form if you want to add new drink order
 - click the delete icon to delete drink order
 - click the edit icon to edit drink order
+- click the decrease icon and increase icon to control drink order counts
 
 ## Description
 
