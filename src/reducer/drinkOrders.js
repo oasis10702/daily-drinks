@@ -21,7 +21,7 @@ const initialState = [
 const drinkOrders = (state = initialState, action) => {
   switch (action.type) {
     case ADD_DRINK:
-      return [...state, action.payload];
+      return [...state, { ...action.payload, counts: 1 }];
     case DELETE_DRINK: {
       const { orderIndex } = action.payload;
       const stateTmp = cloneDeep(state);
