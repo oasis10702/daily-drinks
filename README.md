@@ -17,8 +17,8 @@ By far, only unit tests for utils.
 
 **Todo**
 
-- implement more error handling, i.e. handle price is required a number, not other types, handle empty input is invaild.
+- Implement more error handling, i.e. handle price is required a number, not other types, handle empty input is invaild.
 
 - UI beautify, I would use material-UI and JSS to make the app more beautifully. And add some advanced CSS animation.
 
-- implement E2E testing.
+- Implement E2E testing.
