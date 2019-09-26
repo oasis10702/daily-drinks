@@ -1,3 +1,6 @@
 export const ADD_DRINK = "ADD_DRINK";
 export const DELETE_DRINK = "DELETE_DRINK";
 export const EDIT_DRINK = "EDIT_DRINK";
+
+export const INCREASE_DRINK_COUNT = "INCREASE_DRINK_COUNT";
+export const DECREASE_DRINK_COUNT = "DECREASE_DRINK_COUNT";
