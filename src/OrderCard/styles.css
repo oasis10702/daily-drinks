@@ -1,0 +1,35 @@
+.orderCard {
+  display: flex;
+  transition: 0.3s;
+}
+
+.cardItem {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 33.3333%;
+  padding: 24px;
+  border-radius: 50%;
+}
+
+.cardItem:hover {
+  background-color: rgba(241, 240, 207, 0.5);
+}
+
+.buttonGroup {
+  position: absolute;
+  display: flex;
+  top: 50%;
+  left: -48px;
+  transform: translateY(-50%);
+}
+
+.iconButton {
+  width: 24px;
+  height: 24px;
+  transition: 0.3s;
+  border-radius: 50%;
+}
+
+.iconButton:hover {
+  background: darkgrey;
+}

@@ -1,0 +1,19 @@
+.orderList {
+  width: 50%;
+  min-height: 500px;
+  position: absolute;
+  left: 50%;
+  margin-top: 20px;
+  transform: translate(-50%, 0);
+  padding: 24px;
+}
+
+.listTitle {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.listTitleItem {
+  width: 33.3333%;
+}
